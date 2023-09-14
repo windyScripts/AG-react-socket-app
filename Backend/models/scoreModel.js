@@ -15,6 +15,10 @@ const scoreSchema = new Schema({
     type: Number,
     required: true,
   },
+  result: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 export default mongoose.model('Download', roomSchema);
