@@ -8,10 +8,10 @@ import { Server } from 'socket.io';
 
 const app = express();
 
-
 dotenv.config();
 
-// Define routes here
+import roomRoutes from './routes/room.js'
+import userRoutes from './routes/user.js'
 
 app.use(cors({
     origin: '*',
@@ -21,7 +21,8 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Add routes here
+app.use('/',roomRoutes);
+app.use('/auth',userRoutes)
 
 const httpServer = createServer(app);
 
@@ -47,7 +48,7 @@ io.on('connection', socket => {
   });
 
   // Socket commands
-  
+
 });
 
 start();

@@ -11,9 +11,8 @@ const roomSchema = new Schema({
     type: String,
     required: true,
   },
-  date: { type: Date,
-    default: Date.now },
-    winner: {
+  expiration: { type: Date, },
+  winner: {
         type: String,
         default: ''
     },

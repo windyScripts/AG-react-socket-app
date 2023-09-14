@@ -1,15 +1,15 @@
-export const addGroup = () => {
+export const addRoom = () => {
 
 }
 
-export const getOpenGroups = () => {
+export const getOpenRooms = () => {
 
 }
 
-export const archiveGroup = () => {
+export const archiveRoom = () => {
 
 }
 
-export const saveScores = () => {
+export const saveRoomScores = () => {
 
 }
