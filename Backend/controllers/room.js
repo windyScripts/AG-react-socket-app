@@ -1,15 +1,15 @@
-export const addRoom = () => {
+export const addRoom = (req,res) => {
 
 }
 
-export const getOpenRooms = () => {
+export const getOpenRooms = (req,res) => {
 
 }
 
-export const archiveRoom = () => {
+export const archiveRoom = (req,res) => {
 
 }
 
-export const saveRoomScores = () => {
+export const saveRoomScores = (req,res) => {
 
 }

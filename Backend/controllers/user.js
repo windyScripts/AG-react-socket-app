@@ -1,19 +1,19 @@
-export const signUpUser = () => {
+export const signUpUser = (req,res) => {
 
 }
 
-export const loginUser = () => {
+export const loginUser = (req,res) => {
 
 }
 
-export const createPasswordRequest = () => {
-    
-}
-
-export const setPassword = () => {
+export const createPasswordRequest = (req,res) => {
 
 }
 
-export const getPasswordUpdateForm = () => {
+export const setPassword = (req,res) => {
+
+}
+
+export const getPasswordUpdateForm = (req,res) => {
 
 }

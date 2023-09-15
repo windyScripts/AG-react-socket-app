@@ -1,7 +1,7 @@
-export const getSocketId = () => {
+export const getSocketId = (req,res) => {
 
 }
 
-export const getUserSocket = () => {
-    
+export const getUserSocket = (req,res) => {
+
 }
