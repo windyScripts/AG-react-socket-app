@@ -13,7 +13,6 @@ const roomSchema = new Schema({
   },
   participantId:{
     type: String,
-    required: true,
   },
   expiration: { type: Date, },
   winner: {

@@ -15,6 +15,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  currentlyPlaying:{
+    type: Boolean,
+    default: true
+  }
 });
 
-export default mongoose.model('Download', roomSchema);
+export default mongoose.model('User', userSchema);

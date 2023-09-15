@@ -21,4 +21,4 @@ const scoreSchema = new Schema({
   }
 });
 
-export default mongoose.model('Download', roomSchema);
+export default mongoose.model('Score', scoreSchema);
