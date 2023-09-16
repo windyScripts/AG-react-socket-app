@@ -13,10 +13,12 @@ dotenv.config();
 import roomRoutes from './routes/room.js'
 import userRoutes from './routes/user.js'
 
-app.use(cors({
+const corsOptions = {
     origin: '*',
     methods: ['GET', 'POST'],
-  }));
+  }
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -48,6 +50,18 @@ io.on('connection', socket => {
   });
 
   // Socket commands
+  socket.on('join room',room,cb => {
+    socket.join(room);
+    cb(`Connected to ${room}`);
+  })
+  socket.on('game end', (room,cb) => {
+    try {
+        socket.leave(room);
+        cb(`Left ${room}`);
+      } catch (err) {
+        console.log(err);
+      }
+  })
 
 });
 
