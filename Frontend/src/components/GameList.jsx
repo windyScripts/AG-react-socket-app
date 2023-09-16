@@ -1,0 +1,1 @@
+// get request result for rooms, if there are any, show them. Else redirect to create room
