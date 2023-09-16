@@ -1,22 +1,22 @@
 import User from '../models/userModel'
 
-export const createUser = (params) => {
+export const createUser = async (params) => {
 const user = new User(params);
 return user.save();
 }
 
-export const findOneUser = (params) => {
+export const findOneUser = async (params) => {
     return User.findOne(params);
 }
 
-export const getUserGameScore = (params) => {
+export const getUserGameScore = async (params) => {
     
 }
 
-export const saveUser = (user,session=null) => {
+export const saveUser = async (user,session=null) => {
     return user.save({session})
 }
 
-export const getUserSocketId = () => {
-    
+export const getUserSocketId = async (userId) => {
+    return User.findOne({userId}).currentSocketId
 }
