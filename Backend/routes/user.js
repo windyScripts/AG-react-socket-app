@@ -5,7 +5,7 @@ const router = Router();
 
 // new user registration
 
-router.post('/new', signUpUser);
+router.post('/signup', signUpUser);
 
 // user login
 
