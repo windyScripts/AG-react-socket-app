@@ -9,10 +9,6 @@ export const findOneUser = async (params) => {
     return User.findOne(params);
 }
 
-export const getUserGameScore = async (params) => {
-    
-}
-
 export const saveUser = async (user,session=null) => {
     return user.save({session})
 }

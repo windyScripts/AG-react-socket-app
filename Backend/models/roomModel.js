@@ -7,11 +7,11 @@ const roomSchema = new Schema({
     type: String,
     required: true,
   },
-  creatorId: {
+  creatorEmail: {
     type: String,
     required: true,
   },
-  participantId:{
+  participantEmail:{
     type: String,
   },
   expiration: { type: Date, },

@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema;
 
 const scoreSchema = new Schema({
-  userId: {
+  userEmail: {
     type: String,
     required: true,
   },
@@ -18,6 +18,10 @@ const scoreSchema = new Schema({
   result: {
     type: Boolean,
     default: false,
+  },
+  date:{
+    type: Date,
+    default: Date.now,
   }
 });
 

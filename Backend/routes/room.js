@@ -1,10 +1,13 @@
 import { Router } from "express";
-import { addRoom, getOpenRooms, saveRoomScores } from "../controllers/room.js";
-
+import { addRoom, getOpenRooms, joinRoom, endGame, setExpiry} from "../controllers/room.js";
+import { getScores } from "../controllers/user.js";
 const router = Router();
 
 router.post('/room',addRoom);
 router.get('/rooms',getOpenRooms);
-router.post('/score',saveRoomScores)
+router.put('/join',joinRoom);
+router.post('/end',endGame);
+router.get('/scores',getScores)
+router.post('/expiry',setExpiry)
 
 export default router;

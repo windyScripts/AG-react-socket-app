@@ -1,6 +1,9 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
+import { findOneUser } from '../services/user';
+import { getAllUserScores } from '../services/score';
+
 function generateAccessToken(id) {
     const iat = new Date;
     return jwt.sign({ userId: id, date: iat.getTime() }, process.env.JWT_SIGN);
@@ -16,7 +19,7 @@ function generateAccessToken(id) {
 export const signUpUser = async (req,res) => {
     try {
         const checkInvalid = invalid(req.body.userName, req.body.email, req.body.password);
-        const existingUser = Boolean(await User.findOne({ email: req.body.email }));
+        const existingUser = Boolean(await findOneUser({ email: req.body.email }));
         if (checkInvalid === true) {
           return res.status(401).json({ message: 'Invalid details.' });
         } else if (existingUser === true) {
@@ -35,7 +38,7 @@ export const signUpUser = async (req,res) => {
 
 export const loginUser = async (req,res) => {
     try {
-        const user = await User.findOne({ email: req.body.email });
+        const user = await findOneUser({ email: req.body.email });
         if (user !== null) {
           bcrypt.compare(req.body.password, user.password, (err, result) => {
             if (result === true) {
@@ -50,14 +53,22 @@ export const loginUser = async (req,res) => {
       }
 }
 
-export const createPasswordRequest = (req,res) => {
-
+export const getScores = async (req,res) => {
+    try{
+        const userEmail = req.user.email;
+        const response = await getAllUserScores({userEmail},{sort:{date:-1}},10)
+        return res.status(200).json(response);
+    }catch(err){
+        return res.status(404).json({ message: 'No scores for user' });
+    }
 }
 
-export const setPassword = (req,res) => {
-
-}
-
-export const getPasswordUpdateForm = (req,res) => {
-
+export const getScore = async (req,res) => {
+    try{
+        const userEmail = req.user.email;
+        const response = await getAllUserScores({userEmail},{sort:{date:-1}},10)
+        return res.status(200).json(response);
+    }catch(err){
+        return res.status(404).json({ message: 'No scores for user' });
+    }
 }
