@@ -16,19 +16,23 @@ const joinRoom = (payload) => {
 };
 
 const getScores = (userId) => {
-  return axios.get(API_URL + userId + "/score", { headers: authHeader() });
+  return axios.get(API_URL + userId + "/scores", { headers: authHeader() });
 };
 
 const endGame = (result) => {
   return axios.post(API_URL + "/end", result, { headers: authHeader() })
 }
 
+const setExpiry = (Date) => {
+  return axios.post(API_URL + "/expiry", result, { headers: authHeader() })
+}
 const GameService = {
   getOpenRooms,
   createRoom,
   joinRoom,
   getScores,
   endGame,
+  setExpiry
 };
 
 export default GameService;

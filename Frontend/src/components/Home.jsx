@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import UserService from "../services/game.service";
+import GameService from "../services/game.service";
 
 const Home = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    UserService.getPublicContent().then(
+    GameService.getOpenRooms().then(
       (response) => {
         setContent(response.data);
       },
